@@ -1,0 +1,225 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'PixelFont';
+  src: url('../public/SlimThinPixelettes-y5Y3.ttf') format('truetype');
+}
+body {
+  font-family: 'PixelFont';
+  text-align: center;
+  background-color: #000000;
+  color: #d2232a;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/ezgif.com-animated-gif-maker.gif');
+  background-size: cover;
+  background-position: center;
+  color: #d2232a;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+  z-index: -1;
+}
+
+/* No background image state */
+body.no-background::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.title .large {
+  font-family: 'PixelFont';
+  font-size: 4rem;
+  font-weight: bold;
+}
+.title .small {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+button {
+  font-family: 'PixelFont';
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.start-btn {
+  background-color: transparent;
+  color: white;
+}
+.credits-btn {
+  background-color: transparent;
+  color: white;
+}
+
+.flip-card-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
+@keyframes slideInFromBottom {
+  from {
+      transform: translateY(100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+.fade-text {
+  opacity: 0;
+  transition: opacity 2.5s;
+  margin-top: 20px; /* Add margin to separate from the card */
+}
+.flip-card.flipped + .fade-text {
+  opacity: 1;
+}
+.fade-text .main-text {
+  font-size: 2rem; /* Bigger main text */
+}
+.fade-text .subtitle {
+  font-size: 1rem; /* Smaller subtitle */
+}
+.ready-button {
+  font-family: 'PixelFont';
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  opacity: 0;
+  transition: opacity 5.1s;
+}
+.ready-button.show {
+  opacity: 1;
+}
+
+.lobby-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.lobby-player {
+  list-style-type: none;
+  padding: 5px 0;
+  color: lightgray
+}
