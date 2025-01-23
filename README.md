@@ -35,12 +35,13 @@ To run this project, ensure you have the following installed:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/JackMuir1/Murder-Web-App.git
+cd Murder-Web-App
+
 ```
 
 ### 2. Install Dependencies
-Install dependencies for both the `client` and `server`:
+Install dependencies for both the `client` and `server` (commands from the project root):
 ```bash
 # Install root dependencies
 npm install
